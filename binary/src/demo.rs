@@ -1,5 +1,5 @@
 library::imports!();
 
 pub fn adder_demo() {
-    Adder::print_add(1, 2);
+    Adder::print_add(13.0, 56.0);
 }
