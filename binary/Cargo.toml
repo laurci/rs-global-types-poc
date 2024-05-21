@@ -1,0 +1,10 @@
+[package]
+name = "binary"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+library = { path = "../library" }
+
+[build-dependencies]
+regex = "1.10.4"
