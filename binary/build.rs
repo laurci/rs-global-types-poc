@@ -15,14 +15,11 @@ fn main() {
         .captures(source_file)
         .and_then(|captures| captures.get(1));
 
-    let adder_value_type = if let Some(capture) = capture {
-        capture.as_str()
-    } else {
-        "i32"
+    let Some(capture) = capture else {
+        return;
     };
+    let adder_value_type = capture.as_str();
 
     let proxy_code = format!("type AdderType = {};", adder_value_type);
     fs::write(&out_path, proxy_code).unwrap();
-
-    println!("cargo:warning=binary build path={:?}", out_path);
 }
