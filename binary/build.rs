@@ -11,7 +11,9 @@ fn main() {
 
     // regex extract type from library::adder_value_type!(TYPE);
     let re = regex::Regex::new(r"api_type!\((.+)\)").unwrap();
-    let capture = re.captures(source_file).and_then(|captures| captures.get(1));
+    let capture = re
+        .captures(source_file)
+        .and_then(|captures| captures.get(1));
 
     let adder_value_type = if let Some(capture) = capture {
         capture.as_str()
